@@ -4,73 +4,65 @@ import {
   DonoOpaMock,
   RankMock,
 } from '@/components/product-mocks'
+import type { Dictionary } from '@/lib/i18n'
 
-export function FeatureGrid() {
+export function FeatureGrid({ dict }: { dict: Dictionary }) {
+  const t = dict.features
+
   return (
     <section className="bg-muted/60 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-14">
         <SectionHeading
-          eyebrow="Staff actually want to use it"
+          eyebrow={t.eyebrow}
           title={
             <>
-              A tool your team opens
-              <br className="hidden sm:block" /> without being asked
+              {t.titleLine1}
+              <br className="hidden sm:block" /> {t.titleLine2}
             </>
           }
-          description="Gamification, a friendly AI assistant, daily checklists and a genuinely pleasant mobile app — because restaurant staff live on their phones, not at a desk."
+          description={t.description}
         />
 
         <div className="grid w-full gap-5 md:grid-cols-2">
           <article className="soft-card flex flex-col gap-6 p-6 sm:p-8">
             <div className="flex justify-center rounded-3xl bg-muted/70 p-6">
-              <RankMock />
+              <RankMock dict={dict} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl font-semibold">Darajam ranks and points</h3>
+              <h3 className="text-xl font-semibold">{t.ranks.title}</h3>
               <p className="text-sm leading-relaxed text-pretty text-muted-foreground">
-                Five levels from Yangi to Usta, earned through good attendance,
-                punctuality and completed tasks. Redeeming a reward never costs
-                someone their rank.
+                {t.ranks.body}
               </p>
             </div>
           </article>
 
           <article className="soft-card flex flex-col gap-6 p-6 sm:p-8">
             <div className="rounded-3xl bg-muted/70 p-6">
-              <DonoOpaMock />
+              <DonoOpaMock dict={dict} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl font-semibold">Ask Dono opa anything</h3>
+              <h3 className="text-xl font-semibold">{t.assistant.title}</h3>
               <p className="text-sm leading-relaxed text-pretty text-muted-foreground">
-                A built-in AI assistant trained on your own menu, recipes and
-                house rules — so staff get answers instantly instead of hunting
-                down a manager mid-service.
+                {t.assistant.body}
               </p>
             </div>
           </article>
 
           <article className="soft-card flex flex-col gap-6 p-6 sm:p-8">
             <div className="rounded-3xl bg-muted/70 p-6">
-              <ChecklistMock />
+              <ChecklistMock dict={dict} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl font-semibold">
-                Opening checklist, done right
-              </h3>
+              <h3 className="text-xl font-semibold">{t.checklist.title}</h3>
               <p className="text-sm leading-relaxed text-pretty text-muted-foreground">
-                Start, mid and end-of-shift templates with photo-required items
-                and points on completion, targeted by department and role.
+                {t.checklist.body}
               </p>
             </div>
           </article>
 
           <article className="soft-card flex flex-col gap-6 p-6 sm:p-8">
             <div className="flex flex-col gap-3 rounded-3xl bg-muted/70 p-6">
-              {[
-                { code: 'UZ', label: "O'zbekcha", sample: 'Smenaga yozilish' },
-                { code: 'RU', label: 'Русский', sample: 'Отметка на смене' },
-                { code: 'EN', label: 'English', sample: 'Clock in to shift' },
-              ].map((lang) => (
+              {t.languages.samples.map((lang) => (
                 <div
                   key={lang.code}
                   className="flex items-center gap-3 rounded-2xl bg-card px-4 py-3"
@@ -88,13 +80,9 @@ export function FeatureGrid() {
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl font-semibold">
-                Your whole team, in their own language
-              </h3>
+              <h3 className="text-xl font-semibold">{t.languages.title}</h3>
               <p className="text-sm leading-relaxed text-pretty text-muted-foreground">
-                Uzbek, Russian and English throughout the product — built in from
-                the start, with a per-person language preference regardless of
-                the business default.
+                {t.languages.body}
               </p>
             </div>
           </article>

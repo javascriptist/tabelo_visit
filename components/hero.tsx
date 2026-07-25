@@ -1,9 +1,12 @@
-import Image from 'next/image'
 import { ArrowRight, Fingerprint } from 'lucide-react'
+import Image from 'next/image'
 import { Eyebrow } from '@/components/brand'
 import { RotaMock } from '@/components/product-mocks'
+import type { Dictionary } from '@/lib/i18n'
 
-export function Hero() {
+export function Hero({ dict }: { dict: Dictionary }) {
+  const t = dict.hero
+
   return (
     <section id="top" className="relative overflow-hidden px-4 pt-14 pb-28 sm:px-6 sm:pt-20 sm:pb-36">
       {/* Soft indigo wash behind the product mock. The box is narrower than the
@@ -26,16 +29,15 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_1.05fr]">
         <div className="flex flex-col items-start gap-6">
-          <Eyebrow>Workforce management for restaurants</Eyebrow>
+          <Eyebrow>{t.eyebrow}</Eyebrow>
 
           <h1 className="max-w-xl font-display text-[2.75rem] leading-[1.02] font-semibold tracking-tight text-balance sm:text-6xl">
-            Rota, clock-in and payroll — in one place, in your language.
+            {t.titleLine1}
+            <br className="hidden sm:block" /> {t.titleLine2}
           </h1>
 
           <p className="max-w-md text-base leading-relaxed text-pretty text-muted-foreground">
-            Stop running your restaurant&apos;s schedule on paper and Telegram.
-            Tabelo replaces spreadsheets, group chats and manual payroll math
-            with one system your whole team actually uses.
+            {t.body}
           </p>
 
           <form
@@ -43,37 +45,38 @@ export function Hero() {
             className="flex w-full max-w-md flex-col gap-2 rounded-full bg-card p-1.5 shadow-[0_2px_4px_rgba(74,59,140,0.04),0_14px_32px_-12px_rgba(74,59,140,0.18)] sm:flex-row sm:items-center"
           >
             <label htmlFor="hero-email" className="sr-only">
-              Work email
+              {t.emailLabel}
             </label>
             <input
               id="hero-email"
               type="email"
               required
-              placeholder="Your work email"
+              placeholder={t.emailPlaceholder}
               className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground"
             />
             <button
               type="submit"
               className="flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
-              Book a demo
+              {t.submit}
               <ArrowRight className="size-4" aria-hidden="true" />
             </button>
           </form>
 
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
-            <li>Uzbek · Russian · English</li>
-            <li aria-hidden="true">·</li>
-            <li>GPS, QR &amp; NFC clock-in</li>
-            <li aria-hidden="true">·</li>
-            <li>iOS &amp; Android</li>
+          {/* No interpunct separators: the badge strings differ per market and
+              wrap at different points, which would orphan a leading "·" at the
+              start of a line. Gap alone reads cleanly at every width. */}
+          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+            {t.badges.map((badge) => (
+              <li key={badge}>{badge}</li>
+            ))}
           </ul>
         </div>
 
         {/* Product mock cluster */}
         <div className="relative">
           <div className="rounded-3xl bg-card/70 p-2 shadow-[0_2px_4px_rgba(74,59,140,0.04),0_30px_60px_-24px_rgba(74,59,140,0.28)] backdrop-blur">
-            <RotaMock />
+            <RotaMock dict={dict} />
           </div>
 
           <div className="animate-float-soft absolute -bottom-10 -left-6 hidden items-center gap-3 rounded-full bg-card py-2.5 pr-5 pl-2.5 shadow-[0_18px_40px_-16px_rgba(74,59,140,0.3)] sm:flex">
@@ -81,17 +84,23 @@ export function Hero() {
               <Fingerprint className="size-4" aria-hidden="true" />
             </span>
             <span className="text-xs">
-              <span className="font-semibold">Bekzod T. clocked in</span>
-              <span className="ml-1.5 text-muted-foreground">08:02 · NFC</span>
+              <span className="font-semibold">{t.clockedIn}</span>
+              <span className="ml-1.5 text-muted-foreground">
+                {t.clockedInMeta}
+              </span>
             </span>
           </div>
 
-          <div className="absolute -top-6 -right-3 hidden rounded-2xl bg-card px-4 py-3 shadow-[0_16px_36px_-14px_rgba(74,59,140,0.3)] md:block">
-            <p className="text-[10px] text-muted-foreground">Exception queue</p>
+          {/* Sits clear of the rota card's own header badge — translated labels
+              are wider than the English ones and used to collide with it. */}
+          <div className="absolute -top-16 -right-3 hidden max-w-[220px] rounded-2xl bg-card px-4 py-3 shadow-[0_16px_36px_-14px_rgba(74,59,140,0.3)] md:block">
+            <p className="text-[10px] text-muted-foreground">
+              {t.exceptionQueue}
+            </p>
             <p className="font-display text-lg font-semibold">
               2{' '}
               <span className="text-sm font-medium text-muted-foreground">
-                to review
+                {t.toReview}
               </span>
             </p>
           </div>

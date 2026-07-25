@@ -4,68 +4,62 @@ import {
   LiveAttendanceMock,
   TimesheetMock,
 } from '@/components/product-mocks'
+import type { Dictionary } from '@/lib/i18n'
 
-export function BentoSection() {
+export function BentoSection({ dict }: { dict: Dictionary }) {
+  const t = dict.bento
+
   return (
     <section id="features" className="bg-muted/60 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-14">
         <SectionHeading
-          eyebrow="What makes Tabelo different"
+          eyebrow={t.eyebrow}
           title={
             <>
-              One system instead of five,
-              <br className="hidden sm:block" /> built for your market
+              {t.titleLine1}
+              {t.titleLine2 ? (
+                <>
+                  <br className="hidden sm:block" /> {t.titleLine2}
+                </>
+              ) : null}
             </>
           }
-          description="Rota, clock-in, timesheets, payroll and compliance help — replacing a patchwork of paper, Telegram groups and spreadsheets."
+          description={t.description}
         />
 
         <div className="grid w-full gap-5 lg:grid-cols-2">
           <article className="soft-card flex flex-col gap-8 p-6 sm:p-8 lg:col-span-2 lg:flex-row lg:items-center">
             <div className="w-full max-w-md rounded-3xl bg-muted/70 p-4 sm:p-6">
-              <LiveAttendanceMock />
+              <LiveAttendanceMock dict={dict} />
             </div>
             <div className="flex max-w-md flex-col gap-3">
-              <h3 className="text-2xl font-semibold">
-                Know who&apos;s on the floor, in real time
-              </h3>
+              <h3 className="text-2xl font-semibold">{t.live.title}</h3>
               <p className="leading-relaxed text-pretty text-muted-foreground">
-                See who&apos;s clocked in across every department right now, and
-                who was scheduled but hasn&apos;t shown up. Managers only ever
-                see their own department — enforced at the data level, not just
-                hidden in the UI.
+                {t.live.body}
               </p>
             </div>
           </article>
 
           <article className="soft-card flex flex-col gap-6 p-6 sm:p-8">
             <div className="rounded-3xl bg-muted/70 p-4 sm:p-6">
-              <DemandCalendarMock />
+              <DemandCalendarMock dict={dict} />
             </div>
             <div className="flex flex-col gap-3">
-              <h3 className="text-2xl font-semibold">
-                Know your busy nights before they surprise you
-              </h3>
+              <h3 className="text-2xl font-semibold">{t.demand.title}</h3>
               <p className="leading-relaxed text-pretty text-muted-foreground">
-                Colour-coded demand levels and guest-count estimates, so you
-                schedule against expected demand instead of guesswork — with
-                live labour cost against your weekly budget.
+                {t.demand.body}
               </p>
             </div>
           </article>
 
           <article className="soft-card flex flex-col gap-6 p-6 sm:p-8">
             <div className="rounded-3xl bg-muted/70 p-4 sm:p-6">
-              <TimesheetMock />
+              <TimesheetMock dict={dict} />
             </div>
             <div className="flex flex-col gap-3">
-              <h3 className="text-2xl font-semibold">
-                Payroll that matches the schedule
-              </h3>
+              <h3 className="text-2xl font-semibold">{t.payroll.title}</h3>
               <p className="leading-relaxed text-pretty text-muted-foreground">
-                Hours calculate from clock events with breaks and overnight
-                shifts handled correctly. Approve a week and the period locks —
-                so payroll never runs on data that&apos;s still moving.
+                {t.payroll.body}
               </p>
             </div>
           </article>

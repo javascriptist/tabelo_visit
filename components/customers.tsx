@@ -3,32 +3,11 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useRef } from 'react'
 import { Eyebrow } from '@/components/brand'
+import type { Dictionary } from '@/lib/i18n'
 
-const cards = [
-  {
-    title: 'Single restaurant',
-    body: 'One branch, a handful of departments and a manager who is also on the floor. Rota, clock-in and timesheets without a back-office team.',
-    tags: ['Rota builder', 'GPS clock-in', 'Excel payroll export'],
-  },
-  {
-    title: 'Multi-branch groups',
-    body: 'Shared staff pool across locations, per-branch settings, and one owner view over every rota, cost and exception queue.',
-    tags: ['Per-branch settings', 'Owner overview', 'Branch geofencing'],
-  },
-  {
-    title: 'High-turnover teams',
-    body: 'Onboarding, training modules and ranks that make a new starter productive fast — and give them a reason to stay past month three.',
-    tags: ['Training modules', 'Darajam ranks', 'Checklists'],
-  },
-  {
-    title: 'Compliance-minded operators',
-    body: 'Rest-period and hours warnings based on the 2022 Uzbek Labour Code — soft nudges while building the rota, never a hard block.',
-    tags: ['UZ labour rules', 'Audit trail', 'Period locking'],
-  },
-]
-
-export function Customers() {
+export function Customers({ dict }: { dict: Dictionary }) {
   const trackRef = useRef<HTMLDivElement>(null)
+  const t = dict.customers
 
   const scrollBy = (dir: 1 | -1) => {
     const el = trackRef.current
@@ -41,10 +20,10 @@ export function Customers() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex flex-col gap-4">
-            <Eyebrow>Who it&apos;s for</Eyebrow>
+            <Eyebrow>{t.eyebrow}</Eyebrow>
             <h2 className="max-w-xl text-4xl leading-[1.05] font-semibold text-balance sm:text-6xl">
-              Built for restaurants,
-              <br className="hidden sm:block" /> at every size
+              {t.titleLine1}
+              <br className="hidden sm:block" /> {t.titleLine2}
             </h2>
           </div>
 
@@ -52,7 +31,7 @@ export function Customers() {
             <button
               type="button"
               onClick={() => scrollBy(-1)}
-              aria-label="Previous"
+              aria-label={t.previous}
               className="grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground transition-colors hover:bg-muted"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
@@ -60,7 +39,7 @@ export function Customers() {
             <button
               type="button"
               onClick={() => scrollBy(1)}
-              aria-label="Next"
+              aria-label={t.next}
               className="grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground transition-colors hover:bg-muted"
             >
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -72,7 +51,7 @@ export function Customers() {
           ref={trackRef}
           className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {cards.map((card) => (
+          {t.cards.map((card) => (
             <article
               key={card.title}
               className="flex min-h-[320px] w-[85%] shrink-0 snap-start flex-col justify-between gap-8 rounded-3xl bg-secondary p-6 sm:w-[46%] sm:p-8 lg:w-[31%]"

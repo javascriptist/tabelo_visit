@@ -3,17 +3,21 @@
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { Logo } from '@/components/brand'
+import { LanguageSwitcher } from '@/components/language-switcher'
+import type { Dictionary } from '@/lib/i18n'
+import type { Locale, Market } from '@/lib/i18n/config'
 
-const links = [
-  { label: 'Features', href: '#features' },
-  { label: 'How it works', href: '#how-it-works' },
-  { label: "Who it's for", href: '#customers' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Pricing', href: '#pricing' },
-]
-
-export function SiteNav() {
+export function SiteNav({
+  dict,
+  market,
+  locale,
+}: {
+  dict: Dictionary
+  market: Market
+  locale: Locale
+}) {
   const [open, setOpen] = useState(false)
+  const t = dict.nav
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
@@ -23,11 +27,11 @@ export function SiteNav() {
       >
         <a href="#top" className="flex items-center gap-2">
           <Logo />
-          <span className="sr-only">Tabelo home</span>
+          <span className="sr-only">{t.home}</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
+          {t.links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -40,21 +44,29 @@ export function SiteNav() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <span className="hidden items-center gap-1 rounded-full bg-muted px-2.5 py-1 text-[11px] font-medium text-muted-foreground sm:flex">
-            UZ · RU · EN
-          </span>
+          <LanguageSwitcher
+            market={market}
+            locale={locale}
+            label={t.languageLabel}
+          />
+          <a
+            href="#top"
+            className="hidden rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground sm:block"
+          >
+            {t.login}
+          </a>
           <a
             href="#demo"
             className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
-            Book a demo
+            {t.bookDemo}
           </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             className="grid size-9 place-items-center rounded-full bg-muted text-foreground md:hidden"
             aria-expanded={open}
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? t.closeMenu : t.openMenu}
           >
             {open ? (
               <X className="size-4" aria-hidden="true" />
@@ -68,7 +80,7 @@ export function SiteNav() {
       {open ? (
         <div className="mx-auto mt-2 max-w-6xl rounded-3xl border border-border/60 bg-card p-3 md:hidden">
           <ul className="flex flex-col">
-            {links.map((link) => (
+            {t.links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -79,6 +91,15 @@ export function SiteNav() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="#top"
+                onClick={() => setOpen(false)}
+                className="block rounded-2xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+              >
+                {t.login}
+              </a>
+            </li>
           </ul>
         </div>
       ) : null}

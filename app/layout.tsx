@@ -9,7 +9,7 @@ const _manrope = Manrope({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Tabelo — Workforce management built for restaurants',
   description:
-    'Rota, clock-in, timesheets, payroll and compliance help in one place — in Uzbek, Russian and English. Built for restaurants by Tamal Labs.',
+    'Rota, clock-in, timesheets, payroll and compliance help in one place — in Uzbek, Russian and English. Built for restaurants by Bilig Labs.',
   generator: 'v0.app',
   icons: {
     icon: [

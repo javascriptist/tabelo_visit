@@ -11,7 +11,7 @@ const columns = [
   },
   {
     title: 'Company',
-    links: ['Tamal Labs', 'Dastro', 'Contact', 'Privacy policy'],
+    links: ['Bilig Labs', 'Dastro', 'Contact', 'Privacy policy'],
   },
 ]
 
@@ -25,7 +25,7 @@ export function SiteFooter() {
             <p className="max-w-xs text-sm leading-relaxed text-pretty text-muted-foreground">
               Tabelo is workforce management built for restaurants — rota,
               clock-in, timesheets, payroll and compliance help in one place, in
-              your language. A Tamal Labs product.
+              your language. A Bilig Labs product.
             </p>
 
             <div className="flex flex-col gap-3">
@@ -74,7 +74,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} Tamal Labs. Tabelo is a Tamal Labs
+            © {new Date().getFullYear()} Bilig Labs. Tabelo is a Bilig Labs
             product.
           </p>
           <p>Tashkent · London · Uzbek, Russian &amp; English</p>

@@ -5,7 +5,7 @@ import { Logo } from '@/components/brand'
 import { getDictionary } from '@/lib/i18n'
 import { allVariants, isLocale, isMarket } from '@/lib/i18n/config'
 import { PolicyBody } from './policy-body'
-import type { PolicyLanguage } from './policy-content'
+import { POLICIES, type PolicyLanguage } from './policy-content'
 
 /**
  * Ported from tabelo_front/app/privacy/page.tsx onto this project's tokens and
@@ -39,10 +39,10 @@ export async function generateMetadata({
   const { market, locale } = await params
   if (!isMarket(market) || !isLocale(locale)) return {}
 
-  const dict = getDictionary(market, locale)
+  const policy = POLICIES[policyLanguageFor(locale)]
   return {
-    title: dict.privacy.metaTitle,
-    description: dict.privacy.metaDescription,
+    title: policy.metaTitle,
+    description: policy.metaDescription,
   }
 }
 
@@ -55,7 +55,7 @@ export default async function PrivacyPolicyPage({
   if (!isMarket(market) || !isLocale(locale)) notFound()
 
   const dict = getDictionary(market, locale)
-  const t = dict.privacy
+  const policy = POLICIES[policyLanguageFor(locale)]
   const home = `/${locale}`
 
   return (
@@ -69,7 +69,7 @@ export default async function PrivacyPolicyPage({
           href={home}
           className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
-          {t.backHome}
+          {policy.backHome}
         </Link>
       </header>
 

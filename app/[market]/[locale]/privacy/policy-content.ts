@@ -38,6 +38,15 @@ export type Policy = {
   title: string
   effectiveDateLabel: string
   authoritativeNote: string
+  /**
+   * Page chrome lives here too, rather than in the site dictionary. The
+   * policy is readable in three languages, one of which the marketing
+   * dictionary does not have — and a page that renders its body from here
+   * but its heading from there breaks the moment the two disagree.
+   */
+  backHome: string
+  metaTitle: string
+  metaDescription: string
   sections: PolicySection[]
 }
 
@@ -47,6 +56,10 @@ export const EFFECTIVE_DATE = 'August 6, 2026'
 const en: Policy = {
   title: 'Privacy Policy',
   effectiveDateLabel: 'Effective date',
+  backHome: 'Back home',
+  metaTitle: 'Privacy Policy — Tabelo',
+  metaDescription:
+    'How Tabelo and the Tabelo Staff app collect, use, and protect your data.',
   authoritativeNote:
     'This policy is also available in Uzbek and Russian. The English version is the authoritative one if the versions ever differ.',
   sections: [
@@ -198,6 +211,10 @@ const en: Policy = {
 const uz: Policy = {
   title: 'Maxfiylik siyosati',
   effectiveDateLabel: 'Kuchga kirgan sana',
+  backHome: 'Bosh sahifaga',
+  metaTitle: 'Maxfiylik siyosati — Tabelo',
+  metaDescription:
+    'Tabelo va Tabelo Staff ilovasi ma’lumotlaringizni qanday to‘playdi, ishlatadi va himoya qiladi.',
   authoritativeNote:
     'Ushbu siyosat ingliz va rus tillarida ham mavjud. Matnlar orasida farq bo‘lsa, inglizcha versiya asosiy hisoblanadi.',
   sections: [
@@ -353,6 +370,10 @@ const uz: Policy = {
 const ru: Policy = {
   title: 'Политика конфиденциальности',
   effectiveDateLabel: 'Дата вступления в силу',
+  backHome: 'На главную',
+  metaTitle: 'Политика конфиденциальности — Tabelo',
+  metaDescription:
+    'Как Tabelo и приложение Tabelo Staff собирают, используют и защищают ваши данные.',
   authoritativeNote:
     'Эта политика также доступна на английском и узбекском языках. При расхождении версий приоритет имеет английская.',
   sections: [

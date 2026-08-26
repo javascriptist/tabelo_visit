@@ -277,19 +277,29 @@ export const uzUz: Dictionary = {
       {
         title: 'Mahsulot',
         links: [
-          'Jadval va rejalashtirish',
-          'Ishga kelish / ketish',
-          'Tabel va oylik maosh',
-          'Davomat hisobotlari',
+          { label: 'Jadval va rejalashtirish', href: '#features' },
+          { label: 'Ishga kelish / ketish', href: '#features' },
+          { label: 'Tabel va oylik maosh', href: '#features' },
+          { label: 'Davomat hisobotlari', href: '#features' },
         ],
       },
       {
         title: 'Modullar',
-        links: ['Ro‘yxatlar', 'Darajam darajalari', 'O‘qish', 'Dono opa AI'],
+        links: [
+          { label: 'Ro‘yxatlar', href: '#features' },
+          { label: 'Darajam darajalari', href: '#features' },
+          { label: 'O‘qish', href: '#features' },
+          { label: 'Dono opa AI', href: '#features' },
+        ],
       },
       {
         title: 'Kompaniya',
-        links: ['Bilig Labs', 'Dastro', 'Aloqa', 'Maxfiylik siyosati'],
+        links: [
+          { label: 'Bilig Labs', href: '#top' },
+          { label: 'Dastro', href: '#top' },
+          { label: 'Aloqa', href: '#demo' },
+          { label: 'Maxfiylik siyosati', href: '/privacy' },
+        ],
       },
     ],
   },
@@ -341,5 +351,14 @@ export const uzUz: Dictionary = {
       'Kassa jamg\u2018armasi sanaldi',
     ],
     photoBadge: 'foto',
+  },
+
+  privacy: {
+    metaTitle: 'Maxfiylik siyosati — Tabelo',
+    metaDescription:
+      'Tabelo va Tabelo Staff ilovasi ma’lumotlaringizni qanday yig‘adi, ishlatadi va himoya qiladi.',
+    title: 'Maxfiylik siyosati',
+    effectiveDate: 'Kuchga kirish sanasi',
+    backHome: 'Bosh sahifaga',
   },
 }

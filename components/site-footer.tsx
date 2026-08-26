@@ -43,12 +43,12 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
                 <h3 className="text-sm font-semibold text-accent">{col.title}</h3>
                 <ul className="flex flex-col gap-3">
                   {col.links.map((link) => (
-                    <li key={link}>
+                    <li key={link.label}>
                       <a
-                        href="#top"
+                        href={link.href}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        {link}
+                        {link.label}
                       </a>
                     </li>
                   ))}

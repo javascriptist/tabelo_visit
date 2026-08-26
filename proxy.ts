@@ -30,8 +30,10 @@ export default function proxy(request: NextRequest) {
     const locale = defaultLocale[market]
     const segment = pathname.split('/')[1]
 
+    // Strip a stray locale prefix but keep the page: /uz/privacy -> /privacy.
     if (segment && isLocale(segment)) {
-      return NextResponse.redirect(new URL('/', request.url))
+      const rest = pathname.slice(segment.length + 1) || '/'
+      return NextResponse.redirect(new URL(rest, request.url))
     }
 
     return NextResponse.rewrite(
@@ -48,18 +50,30 @@ export default function proxy(request: NextRequest) {
     )
   }
 
-  // A locale we don't ship yet (ru) must 404 rather than silently fall back.
-  if (isLocale(segment) && marketLocales[market].includes(segment)) {
+  if (isLocale(segment)) {
+    // A locale we don't ship yet (ru) must 404 rather than silently fall back
+    // to another language the reader did not ask for.
+    if (!marketLocales[market].includes(segment)) {
+      return NextResponse.next()
+    }
+
     const rest = pathname.slice(segment.length + 1)
     return NextResponse.rewrite(
       new URL(`/${market}/${segment}${rest}`, request.url),
     )
   }
 
-  return NextResponse.next()
+  // Not a locale at all — a page requested without its prefix, e.g. /privacy.
+  // Send it to the default locale rather than 404ing.
+  return NextResponse.redirect(
+    new URL(`/${defaultLocale[market]}${pathname}`, request.url),
+  )
 }
 
 export const config = {
-  // Everything except Next internals, the deck at /slide, and static assets.
-  matcher: ['/((?!_next|slide|images|favicon|icon|apple-icon|placeholder).*)'],
+  // Everything except Next internals, the decks at /slide and /deck, and
+  // static assets.
+  matcher: [
+    '/((?!_next|slide|deck|images|favicon|icon|apple-icon|placeholder).*)',
+  ],
 }

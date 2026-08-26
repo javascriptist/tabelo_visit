@@ -276,19 +276,29 @@ export const ukEn: Dictionary = {
       {
         title: 'Product',
         links: [
-          'Rota & scheduling',
-          'Clock in / out',
-          'Timesheets & payroll',
-          'Attendance reports',
+          { label: 'Rota & scheduling', href: '#features' },
+          { label: 'Clock in / out', href: '#features' },
+          { label: 'Timesheets & payroll', href: '#features' },
+          { label: 'Attendance reports', href: '#features' },
         ],
       },
       {
         title: 'Modules',
-        links: ['Checklists', 'Darajam ranks', 'Training', 'Dono opa AI'],
+        links: [
+          { label: 'Checklists', href: '#features' },
+          { label: 'Darajam ranks', href: '#features' },
+          { label: 'Training', href: '#features' },
+          { label: 'Dono opa AI', href: '#features' },
+        ],
       },
       {
         title: 'Company',
-        links: ['Bilig Labs', 'Dastro', 'Contact', 'Privacy policy'],
+        links: [
+          { label: 'Bilig Labs', href: '#top' },
+          { label: 'Dastro', href: '#top' },
+          { label: 'Contact', href: '#demo' },
+          { label: 'Privacy policy', href: '/privacy' },
+        ],
       },
     ],
   },
@@ -340,5 +350,14 @@ export const ukEn: Dictionary = {
       'Till float counted',
     ],
     photoBadge: 'photo',
+  },
+
+  privacy: {
+    metaTitle: 'Privacy Policy — Tabelo',
+    metaDescription:
+      'How Tabelo and the Tabelo Staff app collect, use, and protect your data.',
+    title: 'Privacy Policy',
+    effectiveDate: 'Effective date',
+    backHome: 'Back home',
   },
 }

@@ -122,7 +122,20 @@ export type Dictionary = {
      *  server/client boundary, so this must stay serialisable (no functions). */
     copyrightTemplate: string
     locations: string
-    columns: { title: string; links: string[] }[]
+    columns: { title: string; links: { label: string; href: string }[] }[]
+  }
+
+  privacy: {
+    metaTitle: string
+    metaDescription: string
+    title: string
+    effectiveDate: string
+    backHome: string
+    /**
+     * The policy body itself is deliberately NOT in the dictionary — it is a
+     * legal document and is served in English on every variant pending a
+     * translated version reviewed by a lawyer. See privacy/page.tsx.
+     */
   }
 
   /**

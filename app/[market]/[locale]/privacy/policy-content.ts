@@ -51,7 +51,7 @@ export type Policy = {
 }
 
 export const CONTACT_EMAIL = 'mukhammadkodir551@gmail.com'
-export const EFFECTIVE_DATE = 'August 6, 2026'
+export const EFFECTIVE_DATE = 'October 9, 2026'
 
 const en: Policy = {
   title: 'Privacy Policy',
@@ -77,7 +77,7 @@ const en: Policy = {
         { kind: 'lead', text: 'Account & profile information' },
         {
           kind: 'p',
-          text: 'Name, email address, phone number, date of birth, role, department, and branch/location assignment, provided by you or your Organisation when your account is created.',
+          text: 'Name, email address, phone number, date of birth, role, department, branch/location assignment, and the pay rate your Organisation sets for payroll, provided by you or your Organisation when your account is created.',
         },
         { kind: 'lead', text: 'Attendance & location data' },
         {
@@ -106,7 +106,12 @@ const en: Policy = {
         { kind: 'lead', text: 'Device & usage data' },
         {
           kind: 'p',
-          text: 'Standard technical data such as IP address, device/browser type, and app interaction logs, used for security and troubleshooting.',
+          text: 'Standard technical data such as IP address, device/browser type, and app interaction logs, used for security and troubleshooting. If you allow notifications, we also store a push notification token for your device so we can send you shift and task alerts.',
+        },
+        { kind: 'lead', text: 'Website analytics' },
+        {
+          kind: 'p',
+          text: 'Our public website (not the dashboard or the app) uses Vercel Web Analytics to count page views. It sets no cookies and does not build a profile of you or follow you across other sites.',
         },
       ],
     },
@@ -138,7 +143,7 @@ const en: Policy = {
             },
             {
               term: 'Service providers',
-              text: 'we rely on to run Tabelo: Amazon Web Services (data hosting and photo storage), Amazon Rekognition (face comparison), and Anthropic, Google and/or OpenAI (processing chat messages to power the Dono opa AI assistant and AI-generated digests). These providers only process data on our behalf.',
+              text: 'we rely on to run Tabelo: Amazon Web Services (data hosting and photo storage), Amazon Rekognition (face comparison), and Anthropic, Google and/or OpenAI (processing chat messages to power the Dono opa AI assistant and AI-generated digests), Expo (delivering push notifications to your device), Vercel (website hosting and page-view analytics), and OpenStreetMap (map images shown when a manager views a branch location in the dashboard, which receives that viewer’s IP address). These providers only process data on our behalf.',
             },
             {
               term: 'Legal requirements',
@@ -232,7 +237,7 @@ const uz: Policy = {
         { kind: 'lead', text: 'Hisob va profil ma’lumotlari' },
         {
           kind: 'p',
-          text: 'Ism, elektron pochta, telefon raqami, tug‘ilgan sana, lavozim, bo‘lim va filial biriktiruvi — hisobingiz yaratilganda siz yoki Tashkilotingiz tomonidan kiritiladi.',
+          text: 'Ism, elektron pochta, telefon raqami, tug‘ilgan sana, lavozim, bo‘lim, filial biriktiruvi va Tashkilotingiz ish haqi hisobi uchun belgilagan stavka — hisobingiz yaratilganda siz yoki Tashkilotingiz tomonidan kiritiladi.',
         },
         { kind: 'lead', text: 'Davomat va joylashuv ma’lumotlari' },
         {
@@ -261,7 +266,12 @@ const uz: Policy = {
         { kind: 'lead', text: 'Qurilma va foydalanish ma’lumotlari' },
         {
           kind: 'p',
-          text: 'IP manzil, qurilma/brauzer turi va ilova bilan ishlash jurnallari kabi odatiy texnik ma’lumotlar — xavfsizlik va nosozliklarni bartaraf etish uchun.',
+          text: 'IP manzil, qurilma/brauzer turi va ilova bilan ishlash jurnallari kabi odatiy texnik ma’lumotlar — xavfsizlik va nosozliklarni bartaraf etish uchun. Agar bildirishnomalarga ruxsat bersangiz, smena va vazifa eslatmalarini yuborish uchun qurilmangizning push-bildirishnoma tokenini ham saqlaymiz.',
+        },
+        { kind: 'lead', text: 'Veb-sayt analitikasi' },
+        {
+          kind: 'p',
+          text: 'Ommaviy veb-saytimiz (boshqaruv paneli yoki ilova emas) sahifa ko‘rishlarini sanash uchun Vercel Web Analytics’dan foydalanadi. U cookie fayllarini o‘rnatmaydi, siz haqingizda profil tuzmaydi va sizni boshqa saytlarda kuzatmaydi.',
         },
       ],
     },
@@ -296,7 +306,7 @@ const uz: Policy = {
             },
             {
               term: 'Xizmat ko‘rsatuvchilar',
-              text: 'Tabelo ishlashi uchun tayanadiganlarimiz: Amazon Web Services (ma’lumot va surat saqlash), Amazon Rekognition (yuzlarni solishtirish) hamda Anthropic, Google va/yoki OpenAI («Dono opa» yordamchisi va sun’iy intellekt xulosalari uchun xabarlarni qayta ishlash). Bu provayderlar ma’lumotni faqat bizning nomimizdan qayta ishlaydi.',
+              text: 'Tabelo ishlashi uchun tayanadiganlarimiz: Amazon Web Services (ma’lumot va surat saqlash), Amazon Rekognition (yuzlarni solishtirish) hamda Anthropic, Google va/yoki OpenAI («Dono opa» yordamchisi va sun’iy intellekt xulosalari uchun xabarlarni qayta ishlash), Expo (qurilmangizga push-bildirishnomalarni yetkazish), Vercel (veb-sayt xostingi va sahifa ko‘rishlari analitikasi) hamda OpenStreetMap (menejer boshqaruv panelida filial joylashuvini ko‘rganda xarita tasvirlari; u ko‘ruvchining IP manzilini oladi). Bu provayderlar ma’lumotni faqat bizning nomimizdan qayta ishlaydi.',
             },
             {
               term: 'Qonuniy talablar',
@@ -391,7 +401,7 @@ const ru: Policy = {
         { kind: 'lead', text: 'Учётная запись и профиль' },
         {
           kind: 'p',
-          text: 'Имя, адрес электронной почты, номер телефона, дата рождения, должность, отдел и привязка к филиалу — предоставляются вами или вашей Организацией при создании учётной записи.',
+          text: 'Имя, адрес электронной почты, номер телефона, дата рождения, должность, отдел, привязка к филиалу и ставка оплаты, которую ваша Организация устанавливает для расчёта зарплаты, — предоставляются вами или вашей Организацией при создании учётной записи.',
         },
         { kind: 'lead', text: 'Данные о посещаемости и местоположении' },
         {
@@ -420,7 +430,12 @@ const ru: Policy = {
         { kind: 'lead', text: 'Данные об устройстве и использовании' },
         {
           kind: 'p',
-          text: 'Стандартные технические данные: IP-адрес, тип устройства и браузера, журналы взаимодействия с приложением — для безопасности и устранения неполадок.',
+          text: 'Стандартные технические данные: IP-адрес, тип устройства и браузера, журналы взаимодействия с приложением — для безопасности и устранения неполадок. Если вы разрешите уведомления, мы также храним push-токен вашего устройства, чтобы присылать напоминания о сменах и задачах.',
+        },
+        { kind: 'lead', text: 'Аналитика веб-сайта' },
+        {
+          kind: 'p',
+          text: 'Наш публичный веб-сайт (не панель управления и не приложение) использует Vercel Web Analytics для подсчёта просмотров страниц. Он не устанавливает cookie, не создаёт ваш профиль и не отслеживает вас на других сайтах.',
         },
       ],
     },
@@ -455,7 +470,7 @@ const ru: Policy = {
             },
             {
               term: 'Поставщикам услуг',
-              text: 'на которых мы полагаемся для работы Tabelo: Amazon Web Services (хранение данных и фотографий), Amazon Rekognition (сравнение лиц), а также Anthropic, Google и/или OpenAI (обработка сообщений для помощника «Dono opa» и сводок, созданных ИИ). Эти поставщики обрабатывают данные только от нашего имени.',
+              text: 'на которых мы полагаемся для работы Tabelo: Amazon Web Services (хранение данных и фотографий), Amazon Rekognition (сравнение лиц), а также Anthropic, Google и/или OpenAI (обработка сообщений для помощника «Dono opa» и сводок, созданных ИИ), Expo (доставка push-уведомлений на ваше устройство), Vercel (хостинг веб-сайта и аналитика просмотров страниц) и OpenStreetMap (картографические изображения, когда менеджер просматривает местоположение филиала в панели управления; сервис получает IP-адрес этого пользователя). Эти поставщики обрабатывают данные только от нашего имени.',
             },
             {
               term: 'По требованию закона',

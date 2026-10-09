@@ -78,7 +78,8 @@ export function PolicyBody({ initialLanguage }: { initialLanguage: PolicyLanguag
   )
 }
 
-function BlockView({ block }: { block: Block }) {
+/** Also renders the Terms page, so both legal documents share one look. */
+export function BlockView({ block }: { block: Block }) {
   switch (block.kind) {
     case 'lead':
       return <p className="mb-3 font-medium">{block.text}</p>

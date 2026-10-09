@@ -299,6 +299,7 @@ export const uzUz: Dictionary = {
           { label: 'Dastro', href: '#top' },
           { label: 'Aloqa', href: '#demo' },
           { label: 'Maxfiylik siyosati', href: '/privacy' },
+          { label: 'Foydalanish shartlari', href: '/terms' },
         ],
       },
     ],

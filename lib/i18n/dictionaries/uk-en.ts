@@ -298,6 +298,7 @@ export const ukEn: Dictionary = {
           { label: 'Dastro', href: '#top' },
           { label: 'Contact', href: '#demo' },
           { label: 'Privacy policy', href: '/privacy' },
+          { label: 'Terms of service', href: '/terms' },
         ],
       },
     ],

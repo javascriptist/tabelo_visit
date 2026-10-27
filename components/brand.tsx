@@ -1,5 +1,9 @@
 import { cn } from '@/lib/utils'
 
+/**
+ * The Tabelo wordmark: the word with the smile under it. Black with the purple
+ * smile, or all white (`inverse`) on dark backgrounds.
+ */
 export function Logo({
   className,
   tone = 'default',
@@ -8,15 +12,14 @@ export function Logo({
   tone?: 'default' | 'inverse'
 }) {
   return (
-    <span
-      className={cn(
-        'font-display text-xl font-extrabold tracking-tight',
-        tone === 'inverse' ? 'text-ink-foreground' : 'text-primary',
-        className,
-      )}
-    >
-      tabelo<span className="text-gold">.</span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element -- a small static SVG
+    <img
+      src={tone === 'inverse' ? '/tabelo-wordmark-white.svg' : '/tabelo-wordmark.svg'}
+      alt="Tabelo"
+      width={84}
+      height={28}
+      className={cn('h-7 w-auto shrink-0 self-start select-none', className)}
+    />
   )
 }
 

@@ -74,6 +74,6 @@ export const config = {
   // Everything except Next internals, the decks at /slide and /deck, and
   // static assets.
   matcher: [
-    '/((?!_next|slide|deck|images|favicon|icon|apple-icon|placeholder).*)',
+    '/((?!_next|slide|deck|images|favicon|icon|apple-icon|placeholder|tabelo-wordmark).*)',
   ],
 }

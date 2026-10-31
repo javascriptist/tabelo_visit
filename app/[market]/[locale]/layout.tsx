@@ -49,7 +49,7 @@ export async function generateMetadata({
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#FAF8F4',
+  themeColor: '#FFFEFA',
 }
 
 export default async function MarketLayout({

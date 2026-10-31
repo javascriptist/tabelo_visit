@@ -42,7 +42,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
 
           <form
             id="demo"
-            className="flex w-full max-w-md flex-col gap-2 rounded-full bg-card p-1.5 shadow-[0_2px_4px_rgba(74,59,140,0.04),0_14px_32px_-12px_rgba(74,59,140,0.18)] sm:flex-row sm:items-center"
+            className="flex w-full max-w-md flex-col gap-1.5 rounded-[1.75rem] bg-card p-1.5 sm:rounded-full shadow-[0_2px_4px_rgba(74,59,140,0.04),0_14px_32px_-12px_rgba(74,59,140,0.18)] sm:flex-row sm:items-center"
           >
             <label htmlFor="hero-email" className="sr-only">
               {t.emailLabel}
@@ -52,11 +52,11 @@ export function Hero({ dict }: { dict: Dictionary }) {
               type="email"
               required
               placeholder={t.emailPlaceholder}
-              className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground"
+              className="min-w-0 flex-1 bg-transparent px-4 py-3 text-base sm:py-2.5 sm:text-sm outline-none placeholder:text-muted-foreground"
             />
             <button
               type="submit"
-              className="flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              className="flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground press hover:opacity-90 sm:py-2.5"
             >
               {t.submit}
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -80,7 +80,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
           </div>
 
           <div className="animate-float-soft absolute -bottom-10 -left-6 hidden items-center gap-3 rounded-full bg-card py-2.5 pr-5 pl-2.5 shadow-[0_18px_40px_-16px_rgba(74,59,140,0.3)] sm:flex">
-            <span className="grid size-9 place-items-center rounded-full bg-sage/12 text-sage">
+            <span className="grid size-9 place-items-center rounded-full bg-mint text-plum-deep">
               <Fingerprint className="size-4" aria-hidden="true" />
             </span>
             <span className="text-xs">

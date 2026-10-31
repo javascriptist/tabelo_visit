@@ -38,9 +38,9 @@ export function Pricing({ dict }: { dict: Dictionary }) {
               aria-selected={scope === opt.id}
               onClick={() => setScope(opt.id)}
               className={cn(
-                'rounded-full px-5 py-2.5 text-sm font-medium transition-colors',
+                'press rounded-full px-5 py-2.5 text-sm font-medium transition-colors',
                 scope === opt.id
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-mint text-plum-deep'
                   : 'text-muted-foreground hover:text-foreground',
               )}
             >
@@ -78,7 +78,7 @@ export function Pricing({ dict }: { dict: Dictionary }) {
                   {plan.name}
                 </span>
                 {featured ? (
-                  <span className="rounded-full bg-gold px-3 py-1.5 text-xs font-medium text-ink">
+                  <span className="rounded-full bg-mint px-3 py-1.5 text-xs font-medium text-plum-deep">
                     {t.mostPopular}
                   </span>
                 ) : null}
@@ -106,7 +106,7 @@ export function Pricing({ dict }: { dict: Dictionary }) {
                     <Check
                       className={cn(
                         'mt-0.5 size-4 shrink-0',
-                        featured ? 'text-gold' : 'text-sage',
+                        featured ? 'text-mint' : 'text-primary',
                       )}
                       aria-hidden="true"
                     />
@@ -127,7 +127,7 @@ export function Pricing({ dict }: { dict: Dictionary }) {
               <a
                 href="#demo"
                 className={cn(
-                  'flex items-center justify-between gap-3 rounded-full py-2 pr-2 pl-5 text-sm font-medium transition-opacity hover:opacity-90',
+                  'flex items-center justify-between gap-3 rounded-full py-2 pr-2 pl-5 text-sm font-medium press hover:opacity-90',
                   featured
                     ? 'bg-primary-foreground text-primary'
                     : 'bg-card text-foreground',

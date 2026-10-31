@@ -29,7 +29,7 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
                 />
                 <button
                   type="submit"
-                  className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                  className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground press hover:opacity-90"
                 >
                   {t.subscribe}
                 </button>
@@ -37,10 +37,10 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-8">
             {t.columns.map((col) => (
               <div key={col.title} className="flex flex-col gap-4">
-                <h3 className="text-sm font-semibold text-accent">{col.title}</h3>
+                <h3 className="text-sm font-semibold text-primary">{col.title}</h3>
                 <ul className="flex flex-col gap-3">
                   {col.links.map((link) => (
                     <li key={link.label}>

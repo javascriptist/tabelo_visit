@@ -36,7 +36,7 @@ export function Eyebrow({
     <p
       className={cn(
         'flex items-center gap-2 text-sm font-medium',
-        tone === 'inverse' ? 'text-primary-foreground/80' : 'text-accent',
+        tone === 'inverse' ? 'text-primary-foreground/80' : 'text-primary',
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function Eyebrow({
         aria-hidden="true"
         className={cn(
           'inline-block size-1.5 rounded-full',
-          tone === 'inverse' ? 'bg-gold' : 'bg-gold',
+          tone === 'inverse' ? 'bg-mint' : 'bg-lilac',
         )}
       />
       {children}

@@ -32,7 +32,7 @@ export function Customers({ dict }: { dict: Dictionary }) {
               type="button"
               onClick={() => scrollBy(-1)}
               aria-label={t.previous}
-              className="grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground transition-colors hover:bg-muted"
+              className="grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground press hover:bg-muted"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
             </button>
@@ -40,7 +40,7 @@ export function Customers({ dict }: { dict: Dictionary }) {
               type="button"
               onClick={() => scrollBy(1)}
               aria-label={t.next}
-              className="grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground transition-colors hover:bg-muted"
+              className="grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground press hover:bg-muted"
             >
               <ArrowRight className="size-4" aria-hidden="true" />
             </button>

@@ -34,7 +34,7 @@ export function OrgSection({ dict }: { dict: Dictionary }) {
           </p>
           <a
             href="#demo"
-            className="mt-2 flex items-center gap-2 rounded-full bg-ink-foreground px-5 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+            className="mt-2 flex items-center gap-2 rounded-full bg-ink-foreground px-5 py-3 text-sm font-medium text-ink press hover:opacity-90"
           >
             {t.cta}
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -49,7 +49,7 @@ export function OrgSection({ dict }: { dict: Dictionary }) {
                 key={pillar.title}
                 className="flex flex-col items-center gap-3 text-center"
               >
-                <span className="grid size-10 place-items-center rounded-2xl bg-ink-foreground/10 text-gold">
+                <span className="grid size-10 place-items-center rounded-2xl bg-ink-foreground/10 text-mint">
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
                 <h3 className="text-base font-semibold text-ink-foreground">

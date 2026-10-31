@@ -46,13 +46,17 @@ export function RotaMock({ dict, className }: MockProps) {
             <p className="text-xs text-muted-foreground">{dict.mocks.branch}</p>
           </div>
         </div>
-        <span className="rounded-full bg-sage/10 px-2.5 py-1 text-[11px] font-medium text-sage">
+        <span className="rounded-full bg-mint px-2.5 py-1 text-[11px] font-medium text-plum-deep">
           {dict.mocks.onBudget}
         </span>
       </div>
 
-      <div className="mt-4 grid grid-cols-[84px_repeat(7,minmax(0,1fr))] gap-1.5">
-        <span className="sr-only">{dict.mocks.staff}</span>
+      <div className="mt-4 grid grid-cols-[60px_repeat(7,minmax(0,1fr))] gap-1 sm:grid-cols-[84px_repeat(7,minmax(0,1fr))] sm:gap-1.5">
+        {/* Holds the name column's cell; an sr-only span alone is absolutely
+            positioned and would let MON slide into it. */}
+        <span>
+          <span className="sr-only">{dict.mocks.staff}</span>
+        </span>
         {dict.mocks.days.map((d) => (
           <p
             key={d}
@@ -63,7 +67,7 @@ export function RotaMock({ dict, className }: MockProps) {
         ))}
 
         {rotaRows.map((row) => (
-          <div key={row.name} className="col-span-8 grid grid-cols-subgrid gap-1.5">
+          <div key={row.name} className="col-span-8 grid grid-cols-subgrid gap-1 sm:gap-1.5">
             <div className="min-w-0">
               <p className="truncate text-[11px] font-medium">{row.name}</p>
               <p className="truncate text-[10px] text-muted-foreground">
@@ -74,7 +78,7 @@ export function RotaMock({ dict, className }: MockProps) {
               <div
                 key={`${row.name}-${i}`}
                 className={cn(
-                  'grid h-9 place-items-center rounded-lg text-[10px] font-medium',
+                  'relative grid h-9 place-items-center rounded-lg text-[10px] font-medium',
                   shift
                     ? 'bg-primary/10 text-primary'
                     : 'bg-muted text-muted-foreground/40',
@@ -82,11 +86,16 @@ export function RotaMock({ dict, className }: MockProps) {
               >
                 {shift ? (
                   <span className="flex items-center gap-0.5">
-                    {shift}
+                    <span className="sm:hidden">{shift.split('–')[0]}</span>
+                    <span className="hidden sm:inline">{shift}</span>
                     {shift.endsWith('00') || shift.endsWith('04') ? (
-                      <span className="rounded bg-gold/25 px-1 text-[8px] text-gold-deep">
-                        +1
-                      </span>
+                      <>
+                        <span className="hidden rounded bg-lilac/25 px-1 text-[8px] text-plum-deep sm:inline">
+                          +1
+                        </span>
+                        {/* Too narrow for "+1" on a phone: a corner dot says overnight. */}
+                        <span className="absolute top-1 right-1 size-1.5 rounded-full bg-lilac sm:hidden" />
+                      </>
                     ) : null}
                   </span>
                 ) : (
@@ -160,8 +169,8 @@ export function LiveAttendanceMock({ dict, className }: MockProps) {
     <div className={cn('w-full rounded-2xl bg-card p-5', className)}>
       <div className="flex items-center justify-between">
         <p className="text-sm font-semibold">{dict.mocks.whosIn}</p>
-        <span className="flex items-center gap-1.5 text-[11px] font-medium text-sage">
-          <span className="size-1.5 animate-pulse rounded-full bg-sage" />
+        <span className="flex items-center gap-1.5 rounded-full bg-mint px-2 py-0.5 text-[11px] font-medium text-plum-deep">
+          <span className="size-1.5 animate-pulse rounded-full bg-plum-deep" />
           {dict.mocks.live}
         </span>
       </div>
@@ -183,8 +192,8 @@ export function LiveAttendanceMock({ dict, className }: MockProps) {
             <span
               className={cn(
                 'rounded-full px-2 py-0.5 text-[10px] font-medium',
-                row.state === 'in' && 'bg-sage/10 text-sage',
-                row.state === 'break' && 'bg-gold/20 text-gold-deep',
+                row.state === 'in' && 'bg-mint text-plum-deep',
+                row.state === 'break' && 'bg-lilac/25 text-plum-deep',
                 row.state === 'missing' && 'bg-destructive/10 text-destructive',
               )}
             >
@@ -214,7 +223,7 @@ export function TimesheetMock({ dict, className }: MockProps) {
             {dict.mocks.approvedLocked}
           </p>
         </div>
-        <span className="rounded-full bg-sage/10 px-2.5 py-1 text-[11px] font-medium text-sage">
+        <span className="rounded-full bg-mint px-2.5 py-1 text-[11px] font-medium text-plum-deep">
           {dict.mocks.payrollReady}
         </span>
       </div>
@@ -251,7 +260,7 @@ const levelStyles = [
   'bg-muted text-muted-foreground/50',
   'bg-primary/10 text-primary',
   'bg-primary/25 text-primary',
-  'bg-gold/30 text-gold-deep',
+  'bg-mint text-plum-deep',
 ]
 
 export function DemandCalendarMock({ dict, className }: MockProps) {
@@ -298,7 +307,7 @@ export function RankMock({ dict, className }: MockProps) {
   return (
     <div className={cn('w-full max-w-[280px] rounded-2xl bg-card p-5', className)}>
       <div className="flex items-center gap-2">
-        <span className="grid size-8 place-items-center rounded-xl bg-gold/20 text-gold-deep">
+        <span className="grid size-8 place-items-center rounded-xl bg-lilac/25 text-plum-deep">
           <Trophy className="size-4" aria-hidden="true" />
         </span>
         <div>
@@ -314,7 +323,7 @@ export function RankMock({ dict, className }: MockProps) {
           <span>{dict.mocks.rankTarget}</span>
         </div>
         <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-          <div className="h-full w-[64%] rounded-full bg-gold" />
+          <div className="h-full w-[64%] rounded-full bg-lilac" />
         </div>
       </div>
       <div className="mt-4 flex items-center gap-1">
@@ -323,7 +332,7 @@ export function RankMock({ dict, className }: MockProps) {
             key={s}
             className={cn(
               'size-3.5',
-              s <= 4 ? 'fill-gold text-gold' : 'text-muted',
+              s <= 4 ? 'fill-lilac text-lilac' : 'text-muted',
             )}
             aria-hidden="true"
           />
@@ -342,7 +351,7 @@ export function DonoOpaMock({ dict, className }: MockProps) {
   return (
     <div className={cn('w-full rounded-2xl bg-card p-5', className)}>
       <div className="flex items-center gap-2">
-        <span className="grid size-8 place-items-center rounded-full bg-accent/15 text-accent">
+        <span className="grid size-8 place-items-center rounded-full bg-lilac/25 text-plum-deep">
           <MessageCircleHeart className="size-4" aria-hidden="true" />
         </span>
         <p className="text-sm font-semibold">{dict.mocks.donoOpa}</p>
@@ -382,7 +391,7 @@ export function ChecklistMock({ dict, className }: MockProps) {
             <CheckCircle2
               className={cn(
                 'size-4 shrink-0',
-                item.done ? 'text-sage' : 'text-muted-foreground/40',
+                item.done ? 'fill-mint text-plum-deep' : 'text-muted-foreground/40',
               )}
               aria-hidden="true"
             />
@@ -392,7 +401,7 @@ export function ChecklistMock({ dict, className }: MockProps) {
                 {dict.mocks.photoBadge}
               </span>
             ) : null}
-            <span className="text-[10px] font-semibold text-gold-deep">+10</span>
+            <span className="text-[10px] font-semibold text-primary">+10</span>
           </li>
         ))}
       </ul>

@@ -57,7 +57,7 @@ export function SiteNav({
           </a>
           <a
             href="#demo"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground press hover:opacity-90"
           >
             {t.bookDemo}
           </a>
